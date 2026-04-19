@@ -528,8 +528,8 @@ function renderAuth(){
         <button class="auth-tab${isLogin?' active':''}" onclick="setState({authTab:'login',authErr:''})">Entrar</button>
         <button class="auth-tab${!isLogin?' active':''}" onclick="setState({authTab:'register',authErr:''})">Criar conta</button>
       </div>
-      <div class="f-group"><label class="f-label">Email</label><input class="f-input" type="email" value="${f.email}" placeholder="seu@email.com" oninput="setAuthForm('email',this.value)"/></div>
-      <div class="f-group"><label class="f-label">Senha</label><input class="f-input" type="password" value="${f.password}" placeholder="••••••••" oninput="setAuthForm('password',this.value)"/></div>
+      <div class="f-group"><label class="f-label">Email</label><input class="f-input" type="email" value="${f.email}" placeholder="seu@email.com" onchage="setAuthForm('email',this.value)"/></div>
+      <div class="f-group"><label class="f-label">Senha</label><input class="f-input" type="password" value="${f.password}" placeholder="••••••••" onchage="setAuthForm('password',this.value)"/></div>
       ${!isLogin?registerFields:''}
       <button class="auth-btn" onclick="${isLogin?'doLogin()':'doRegister()'}" ${state.authLoading?'disabled':''}>
         ${state.authLoading?'Aguarde...':(isLogin?'Entrar':'Criar conta')}
