@@ -12,7 +12,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'dieta-secret-mude-em-producao';
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname));
 
 // ── Database ──────────────────────────────────────────────────────────────────
 const db = new Database(path.join(__dirname, 'dieta.db'));
@@ -304,7 +304,7 @@ app.patch('/api/settings', auth, (req, res) => {
 
 // ── Fallback ──────────────────────────────────────────────────────────────────
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
